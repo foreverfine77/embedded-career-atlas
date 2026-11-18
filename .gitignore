@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+private/
+raw/
+archive/
+work/
+*.xml
+*.log
+.DS_Store
+Thumbs.db

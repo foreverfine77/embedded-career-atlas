@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183f36">
+  <title>嵌入式岗位研究 · Career Atlas</title>
+  <link rel="stylesheet" href="assets/app.css">
+  <script defer src="assets/data.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#jobs" aria-label="嵌入式岗位研究首页"><span class="brand-mark">E<span></span></span><span>嵌入式研究室<small>CAREER ATLAS</small></span></a>
+    <div class="workspace-label">岗位研究工作台</div>
+    <nav aria-label="主要导航">
+      <button class="nav-item active" data-view="jobs"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="15" rx="3"/><path d="M8 6V3h8v3M3 12h18M10 12v3h4v-3"/></svg>岗位探索<span>01</span></button>
+      <button class="nav-item" data-view="analysis"><svg viewBox="0 0 24 24"><path d="M4 20V10M11 20V4M18 20v-8M2 22h20"/></svg>样本分析<span>02</span></button><button class="nav-item" data-view="route"><svg viewBox="0 0 24 24"><path d="M6 20V7a3 3 0 0 1 3-3h9M14 1l4 3-4 3M6 20h12v-7"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="11" r="2"/></svg>学习路线<span>03</span></button>
+    </nav>
+    <div class="side-divider"></div>
+    <div class="workspace-label">研究资料</div>
+    <a class="resource-link" href="docs/salary-table.md" target="_blank" rel="noopener">高薪岗位清单<span>↗</span></a>
+    <a class="resource-link" href="docs/learning-roadmap.md" target="_blank" rel="noopener">方向选择与八周计划<span>↗</span></a>
+    <a class="resource-link" href="docs/methodology.md" target="_blank" rel="noopener">数据口径与方法<span>↗</span></a>
+    <div class="side-note"><span class="live-dot"></span>公开样本档案<p>岗位摘要、薪资与技能要求<br>集中整理，方便比较。</p><div>数据采集于 2026.11.16 · 非实时</div></div>
+    <div class="sidebar-foot"><span>DATA</span>岗位观察档案</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar"><div class="breadcrumb">职业路线<span>/</span><b id="breadcrumb-current">岗位探索</b></div><span class="profile-pill"><i></i>公开样本 · 静态快照</span></header>
+
+    <section id="jobs-view">
+      <div class="page-heading"><div><div class="eyebrow">EXPLORE YOUR NEXT STEP</div><h1>嵌入式岗位库<span class="heading-dot">.</span></h1><p>从真实职位要求出发，找到值得投入的技术方向。</p></div><span class="snapshot-badge"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 2v6M17 2v6M3 11h18"/></svg>2026.11.16 采集快照</span></div>
+
+      <div class="overview-grid">
+        <div class="metric"><span>公开岗位样本</span><strong id="metric-records">218<small>条</small></strong><p>去重后的结构化观察</p><div class="metric-icon">↗</div></div>
+        <div class="metric"><span>覆盖城市</span><strong id="metric-unique">27<small>个</small></strong><p>按岗位标注城市统计</p><div class="metric-icon">▦</div></div>
+        <div class="metric accent"><span>实习机会</span><strong id="metric-interns">45<small>个</small></strong><p>先积累真实开发与交付经验</p><div class="metric-icon">⌁</div></div>
+      </div>
+
+      <div class="direction-banner"><div class="route-symbol"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div><div><span>技能衔接示例</span><b>嵌入式 Linux / BSP <i>→</i> AI 芯片 Runtime / 驱动</b><p>从设备接入、并发与调试基础，逐步理解驱动和异构运行时。</p></div><button class="text-button" data-view="route">查看学习路线 <span>↗</span></button></div>
+
+      <section class="filter-panel" aria-label="岗位筛选">
+        <div class="filter-top"><div class="search-box"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="q" type="search" aria-label="搜索岗位摘要" placeholder="搜索职位、公司、技能或摘要…" autocomplete="off"><span class="search-hint">摘要搜索</span></div><button id="reset" class="reset-button">重置筛选</button></div>
+        <div class="filter-grid">
+          <label>工作城市<select id="city" aria-label="工作城市"><option value="">全部城市</option></select></label>
+          <label>技术方向<select id="direction" aria-label="技术方向"><option value="">全部方向</option></select></label>
+          <label>毕业届别<select id="eligibility" aria-label="毕业届别"><option value="">全部届别</option><option value="2027">明确 2027 届</option><option value="intern">实习 · 届别待确认</option><option value="uncertain">正式岗 · 届别待确认</option><option value="experienced">有经验社招参考</option></select></label>
+          <label>排序方式<select id="sort" aria-label="排序方式"><option value="original">按采集顺序</option><option value="monthly">月薪上限优先</option><option value="daily">实习日薪优先</option><option value="annual">标注年包上限优先</option></select></label>
+        </div>
+      </section>
+
+      <div class="results-top" id="results-top"><div class="type-tabs" role="group" aria-label="岗位类型"><button class="selected" data-type="all" aria-pressed="true">全部岗位<span id="count-all">231</span></button><button data-type="intern" aria-pressed="false">实习岗位<span id="count-intern">45</span></button><button data-type="formal" aria-pressed="false">正式岗位<span id="count-formal">186</span></button></div><div id="result-count" class="result-count" aria-live="polite"></div></div>
+      <div id="active-filters" class="active-filters"></div>
+      <div id="job-grid" class="job-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><div>⌕</div><h2>暂时没有匹配的岗位</h2><p>试试减少一个筛选条件，或换一个技能关键词。</p><button id="empty-reset" class="primary-button">查看全部岗位</button></div>
+      <div id="pagination" class="pagination" aria-label="结果分页"></div>
+      <footer class="data-footer"><p><span class="tiny-dot"></span>数据说明：公开内容为结构化岗位摘要；定向样本并非全站全量；薪资为招聘标注，年包为月薪 × 标注月数的算术折算。</p><span>公开结构化样本 · 非实时招聘目录</span></footer>
+    </section>
+
+
+    <section id="analysis-view" hidden>
+      <div class="page-heading"><div><div class="eyebrow">DESCRIPTIVE SAMPLE ANALYSIS</div><h1>先看样本，再做判断<span class="heading-dot">.</span></h1><p>以下统计均来自公开结构化样本，可以在本地重新计算。</p></div><span class="snapshot-badge">历史样本 · 非全市场统计</span></div>
+      <div class="analysis-note"><b>这不是全市场“大数据结论”。</b><p>初始观察231条，精确去重后218个样本。定向关键词、采集页数和排序会影响分布；技能命中不等于市场份额，薪资广告不等于实际录用收入。</p></div>
+      <div class="analysis-grid"><article class="chart-card"><h2>样本中出现的技能线索</h2><p>同一岗位可命中多个标签；按去重样本计数。</p><div id="chart-skills"></div></article><article class="chart-card"><h2>样本的城市分布</h2><p>展示数量最多的城市；不推断城市真实岗位总量。</p><div id="chart-cities"></div></article></div>
+      <article class="chart-card salary-chart"><h2>同口径观察校招月薪</h2><p>仅含明确2027届的正式岗；计算广告区间中点的中位数，单位k/月。每组少于5个样本不报告中位数。它不是实际工资中位数。</p><div id="salary-observations"></div></article>
+      <div class="route-bottom"><div><h3>数据提供线索，学习路线仍需工程判断</h3><p>C/C++、系统、接口和调试技能可以组合成练习；样本不足以证明某条路线对所有人收益最高。</p></div><button class="primary-button" data-view="route">查看学习示例 →</button></div>
+    </section>
+
+    <section id="route-view" hidden>
+      <div class="page-heading"><div><div class="eyebrow">FROM OBSERVATION TO PRACTICE</div><h1>从技能到岗位<span class="heading-dot">.</span></h1><p>参考岗位技能线索，结合工程先修关系规划学习。</p></div><span class="snapshot-badge">通用学习路线示例</span></div>
+      <div class="route-hero"><span class="eyebrow">学习路线的来源</span><h2>先建立可验证的基础，<br>再选择值得深入的系统方向。</h2><p>样本中的C/C++、操作系统、调试与接口技能提供需求线索；下列先后顺序是工程学习建议，不是大数据模型证明的最优路线。</p><a class="route-action" href="docs/learning-roadmap.md" target="_blank" rel="noopener">阅读完整八周学习示例 <span>↗</span></a></div>
+      <div class="learning-grid"><article><span>01 / 共同基础</span><h3>C / C++ 与系统概念</h3><p>指针、内存、数组、结构体、进程与线程、文件I/O。以能解释、调试和修改代码为完成标准。</p></article><article><span>02 / 小型交付</span><h3>设备接入与通信</h3><p>使用模拟输入完成帧解析、有界队列、网络通信、异常检测和回放，并记录验证方法。</p></article><article><span>03 / 选择分支</span><h3>Linux / BSP 或 MCU / RTOS</h3><p>根据目标岗位选择启动、设备树与驱动，或中断、外设与实时调度，不把技能标签数量当作学习目标。</p></article><article><span>04 / 系统进阶</span><h3>芯片 Runtime / Driver</h3><p>在基础之上理解设备队列、内存管理、异构调度、性能剖析。高级社招薪资只作长期参考。</p></article></div>
+      <div class="route-bottom"><div><h3>把岗位要求转成可检查的练习</h3><p>每个阶段留下代码、复现步骤、边界情况和调试记录。路线应随已有基础与目标岗位调整。</p></div><button class="primary-button" data-view="jobs">回到岗位库 →</button></div>
+    </section>
+  </main>
+
+  <dialog id="job-dialog" class="job-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-record"></span><button id="dialog-close" class="close-button" aria-label="关闭职位详情">×</button></div><div id="dialog-body" class="dialog-body"></div></dialog>
+</body>
+</html>
